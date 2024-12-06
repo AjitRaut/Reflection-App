@@ -1,14 +1,17 @@
 const express = require("express");
-const connectDB = require("./config/db");
-const authRoutes = require("./routes/authRoutes");
-const feedbackRoutes = require("./routes/feedbackRoutes");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const connectDB = require("./config/database");
 
-require("dotenv").config();
-const app = express();
+const authRoutes = require("./routes/authRoute");
+const feedbackRoutes = require("./routes/feedBackRoute");
 
+dotenv.config();
 connectDB();
+
+const app = express();
 app.use(express.json());
-app.use(require("cors")());
+app.use(cors());
 
 app.use("/auth", authRoutes);
 app.use("/feedback", feedbackRoutes);
