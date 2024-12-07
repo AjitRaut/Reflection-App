@@ -1,47 +1,64 @@
-import React, { useState } from 'react';
-import { useRegisterUserMutation } from '../app/apiSlice';
-import { useDispatch } from 'react-redux';
-import { setCredentials } from '../features/authSlice';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import axios from "../services/api";
 
 const Register = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [registerUser] = useRegisterUserMutation();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
     try {
-      const { user, token } = await registerUser({ email, password }).unwrap();
-      dispatch(setCredentials({ user, token }));
-      navigate('/dashboard'); // Redirect to the dashboard after successful registration
-    } catch (error) {
-      console.error('Registration failed:', error);
-      alert('Registration failed! Please try again.');
+      await axios.post("/auth/register", { email, password });
+      window.location = "/login";
+    } catch (err) {
+      alert("Registration failed");
     }
   };
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Register</h2>
+      <form
+        className="bg-white p-6 rounded shadow-md w-96"
+        onSubmit={handleRegister}
+      >
+        <h2 className="text-2xl font-bold mb-4 text-center">Register</h2>
         <input
           type="email"
+          className="block w-full p-2 mb-4 border rounded"
           placeholder="Email"
-          className="border p-2 mb-4 w-full"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <input
           type="password"
+          className="block w-full p-2 mb-4 border rounded"
           placeholder="Password"
-          className="border p-2 mb-4 w-full"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
-        <button className="bg-blue-600 text-white py-2 px-4 rounded">Register</button>
+        <input
+          type="password"
+          className="block w-full p-2 mb-4 border rounded"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
+        <button
+          type="submit"
+          className="block w-full bg-green-500 text-white py-2 rounded"
+        >
+          Register
+        </button>
       </form>
     </div>
   );
