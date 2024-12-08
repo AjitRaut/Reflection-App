@@ -37,7 +37,7 @@ const Dashboard = () => {
                         key={index}
                         className="block px-2 py-1 text-sm text-center bg-green-100 text-green-700 rounded"
                       >
-                        {emotion || "No positive emotion provided"}
+                        {emotion }
                       </span>
                     ))}
                   </div>
@@ -50,7 +50,7 @@ const Dashboard = () => {
                         key={index}
                         className="block px-2 py-1 text-sm text-center bg-red-100 text-red-700 rounded"
                       >
-                        {area || "No improvement area provide"}
+                        {area}
                       </span>
                     ))}
                   </div>

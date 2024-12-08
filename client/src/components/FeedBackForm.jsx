@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const FeedbackForm = () => {
+  const navigate = useNavigate();
   const { feedbackName } = useParams();
 
   const [formData, setFormData] = useState({
@@ -24,11 +25,12 @@ const FeedbackForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (
-      !formData.positiveEmotions.length &&
-      !formData.improvementAreas.length
-    ) {
-      alert("At least one option must be selected.");
+    if (!formData.positiveEmotions.length) {
+      alert("At least one positive emotion must be selected.");
+      return;
+    }
+    if (!formData.improvementAreas.length) {
+      alert("At least one improvement area must be selected.");
       return;
     }
 
@@ -46,15 +48,16 @@ const FeedbackForm = () => {
 
     const data = await response.json();
     if (response.ok) {
-      alert("Thank you !");
+      alert("Thank you!");
       setFormData({
         positiveEmotions: [],
         improvementAreas: [],
         positiveFeedback: "",
         improvementFeedback: "",
       });
+      navigate("/dashboard"); 
     } else {
-      alert(data.error);
+      alert(data.error || "An error occurred.");
     }
   };
 
