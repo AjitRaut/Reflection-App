@@ -23,7 +23,6 @@ const Dashboard = () => {
       ) : (
         feedbacks.map((feedback) => (
           <div key={feedback._id} className="bg-gray-100 p-4 mb-4 rounded">
-            
             {feedback.feedbackName}
             <div>positiv {feedback.positiveEmotions}</div>
             <div>{feedback.improvementAreas}</div>
