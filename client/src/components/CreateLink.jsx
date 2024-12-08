@@ -4,6 +4,12 @@ const CreateLink = () => {
   const [feedbacks, setFeedbacks] = useState([]);
 
   const handleCreateFeedback = async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      alert("Please log in first to create a feedback link.");
+      return;
+    }
     const feedbackName = prompt("Enter Feedback Name:");
     if (!feedbackName) return;
 
@@ -12,7 +18,10 @@ const CreateLink = () => {
         "http://localhost:5000/feedback/create-feedback",
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`, // Add token if user is logged in
+          },
           body: JSON.stringify({ feedbackName }),
         }
       );
@@ -56,7 +65,9 @@ const CreateLink = () => {
                   Feedback Name
                 </th>
                 <th className="p-2 border-b font-medium text-gray-700">Link</th>
-                <th className="p-2 border-b font-medium text-gray-700">Actions</th>
+                <th className="p-2 border-b font-medium text-gray-700">
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody>

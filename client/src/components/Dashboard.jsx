@@ -5,14 +5,26 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        alert("Please log in to view the dashboard.");
+        return; 
+      }
+
       try {
-        const response = await fetch("http://localhost:5000/feedback/get-feedbacks");
+        const response = await fetch("http://localhost:5000/feedback/get-feedbacks", {
+          headers: {
+            "Authorization": `Bearer ${token}`, 
+          },
+        });
         const data = await response.json();
         setFeedbacks(data);
       } catch (error) {
         console.error("Error fetching feedbacks:", error);
       }
     };
+
     fetchFeedbacks();
   }, []);
 
@@ -37,7 +49,7 @@ const Dashboard = () => {
                         key={index}
                         className="block px-2 py-1 text-sm text-center bg-green-100 text-green-700 rounded"
                       >
-                        {emotion }
+                        {emotion}
                       </span>
                     ))}
                   </div>
