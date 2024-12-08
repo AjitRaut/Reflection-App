@@ -1,14 +1,11 @@
-const express = require("express");
-const {
-  createFeedbackLink,
-  submitFeedback,
-  getFeedbacks,
-} = require("../controllers/feedbackController");
-const { protect } = require("../middleware/authMiddleware");
+const express = require('express');
 const router = express.Router();
+const { createFeedback, submitFeedback, getFeedbacks} = require('../controllers/feedbackController'); 
 
-router.post("/create", protect, createFeedbackLink);
-router.post("/submit", submitFeedback);
-router.get("/all", protect, getFeedbacks);
+router.post('/create-feedback', createFeedback);
+
+router.post('/submit-feedback', submitFeedback);
+
+router.get('/get-feedbacks', getFeedbacks);
 
 module.exports = router;

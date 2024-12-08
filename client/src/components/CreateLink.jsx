@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CreateLink = () => {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -56,7 +57,9 @@ const CreateLink = () => {
                   Feedback Name
                 </th>
                 <th className="p-2 border-b font-medium text-gray-700">Link</th>
-                <th className="p-2 border-b font-medium text-gray-700">Actions</th>
+                <th className="p-2 border-b font-medium text-gray-700">
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -64,14 +67,7 @@ const CreateLink = () => {
                 <tr key={index}>
                   <td className="p-2 border-b">{feedback.name}</td>
                   <td className="p-2 border-b text-blue-500">
-                    <a
-                      href={feedback.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline"
-                    >
-                      {feedback.link}
-                    </a>
+                    <Link className="underline">{feedback.link}</Link>
                   </td>
                   <td className="p-2 border-b">
                     <button

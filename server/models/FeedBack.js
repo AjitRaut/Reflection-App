@@ -1,10 +1,14 @@
-const mongoose = require("mongoose");
-const { v4: uuidv4 } = require("uuid");
+const mongoose = require('mongoose');
 
-const FeedbackSchema = new mongoose.Schema({
-  feedbackLink: { type: String, default: uuidv4 },
-  responses: [{ type: String }], 
-  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+const feedbackSchema = new mongoose.Schema({
+  feedbackName: { type: String, required: true, unique: true },
+  feedbackLink: { type: String, required: true },
+  positiveEmotions: { type: [String], default: [] ,required: true },  
+  improvementAreas: { type: [String], default: [] , required: true },  
+  positiveFeedback: { type: String, default: '' },    
+  improvementFeedback: { type: String, default: '' }, 
 });
 
-module.exports = mongoose.model("Feedback", FeedbackSchema);
+const Feedback = mongoose.model('Feedback', feedbackSchema);
+
+module.exports = Feedback;

@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="p-4 bg-blue-600 text-white flex justify-between">
-      <h1 className="text-xl font-bold">Feedback System</h1>
+    <header className="p-4 bg-blue-600 text-white flex justify-between fixed top-0 left-0 w-full z-10">
+      <h1 className="text-xl font-bold">
+        <Link to={"/"}>
+        Feedback System
+        </Link>
+       </h1>
       <nav>
         <Link to="/dashboard" className="mx-2">
           Dashboard
