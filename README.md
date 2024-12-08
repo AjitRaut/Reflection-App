@@ -25,20 +25,20 @@ This application allows users to register, generate unique feedback collection l
 ## **Screenshots**
 
 ### Registration Page  
-![Registration Page](assets/images/register.png)
+![Registration Page](public/assets/images/register.png)
 
 ### Login Page  
-![Login Page](assets/images/login.png)
+![Login Page](public/assets/images/login.png)
 
 ### Feedback Link Generation Page  
-![Feedback Link Generation](assets/images/link-generate.png)
+![Feedback Link Generation](public/assets/images/link-generate.png)
 
 ### Feedback Submission Page  
-![Feedback Submission](assets/images/feedbackform.png)
+![Feedback Submission](public/assets/images/feedbackform.png)
 
 
 ### Dashboard View  
-![Dashboard](assets/images/dashboard.png)
+![Dashboard](public/assets/images/dashboard.png)
 
 ---
 
