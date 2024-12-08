@@ -64,12 +64,9 @@ This application allows users to register, generate unique feedback collection l
 
 1. Clone the repository:  
    ```bash
-<<<<<<< HEAD
-   git clone <repository-url>
-   cd reflection-application
-=======
-   git clone https://github.com/AjitRaut/Reflection-App.git
+    git clone: https://github.com/AjitRaut/Reflection-App.git
    cd reflection-app
+
 
 2. Install dependencies for the backend and frontend:
    For the backend:
@@ -100,4 +97,3 @@ MongoDB: v6.x
 Ajit Raut
 Email: [ajitraut9561@gmail.com]
 LinkedIn: [https://www.linkedin.com/in/ajit-raut-b1254222a/]
->>>>>>> 90a7dd36430f9742dcef18e41fcb2eecc9696ed6
