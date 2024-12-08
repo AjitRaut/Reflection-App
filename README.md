@@ -25,29 +25,33 @@ This application allows users to register, generate unique feedback collection l
 ## **Screenshots**
 
 ### Registration Page  
-![Registration Page](assets/images/register.png)
+![Registration Page](client/public/assets/images/register.png)
 
 ### Login Page  
-![Login Page](assets/images/login.png)
+![Login Page](client/public/assets/images/login.png)
 
 ### Feedback Link Generation Page  
-![Feedback Link Generation](assets/images/link-generate.png)
+![Feedback Link Generation](client/public/assets/images/link-generate.png)
 
 ### Feedback Submission Page  
-![Feedback Submission](assets/images/feedbackform.png)
-
+![Feedback Submission](client/public/assets/images/feedbackform.png)
 
 ### Dashboard View  
-![Dashboard](assets/images/dashboard.png)
+![Dashboard](client/public/assets/images/dashboard.png)
 
+### User database
+![User Database](client/public/assets/images/userdatabse.png)
+
+### FeedBack database
+![FeedBack Database](client/public/assets/images/feedBackdatabase.png)
 ---
 
 ## **Tech Stack**
 
-- **Frontend**: [HTML, CSS, JavaScript / React]  
-- **Backend**: [Node.js, Express.js]  
-- **Database**: [MongoDB ]  
-- **Styling Framework**: [Tailwind CSS]  
+- **Frontend**: React
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB 
+- **Styling Framework**: Tailwind CSS  
 
 ---
 
