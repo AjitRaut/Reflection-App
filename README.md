@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 This application allows users to register, generate unique feedback collection links, and view anonymous feedback on a dashboard. It was developed for the ThinkQuotient Coding Challenge, focusing on simplicity and user-friendliness.
 
 ---
@@ -66,5 +65,3 @@ This application allows users to register, generate unique feedback collection l
    ```bash
    git clone <repository-url>
    cd reflection-application
-=======
->>>>>>> 492c2f067bc13f8db727b6b887c47d99300306fc
